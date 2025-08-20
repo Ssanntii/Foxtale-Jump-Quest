@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv8vhe8hlhsig"]
+
+[ext_resource type="Texture2D" uid="uid://diahhtgyb2o1f" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/idle/frog-idle-1.png" id="1_trukr"]
+[ext_resource type="Texture2D" uid="uid://c5ji3kbpmlq3l" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/idle/frog-idle-2.png" id="2_snp6u"]
+[ext_resource type="Texture2D" uid="uid://c1kb4nxpjtm6n" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/idle/frog-idle-3.png" id="3_a21oh"]
+[ext_resource type="Texture2D" uid="uid://db6c58pbngyhq" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/idle/frog-idle-4.png" id="4_2auyx"]
+[ext_resource type="Texture2D" uid="uid://bx5plj7b2rvkr" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/jump/frog-jump-1.png" id="5_c1ote"]
+[ext_resource type="Texture2D" uid="uid://cir2cdsueddxr" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/frog/Sprites/jump/frog-jump-2.png" id="6_qa17l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4aghg"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqusp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_trukr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_snp6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a21oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2auyx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c1ote")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qa17l")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_4aghg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -11)
+sprite_frames = SubResource("SpriteFrames_pqusp")
+animation = &"Idle"
+metadata/_edit_lock_ = true
