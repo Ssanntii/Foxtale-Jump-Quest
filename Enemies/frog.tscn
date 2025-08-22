@@ -95,7 +95,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ovti"]
-radius = 176.102
+radius = 129.004
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqusp"]
 size = Vector2(18, 16)
@@ -113,24 +113,23 @@ shape = SubResource("RectangleShape2D_keg4g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
 sprite_frames = SubResource("SpriteFrames_pqusp")
-animation = &"Jump"
+animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_5ovti")
 
 [node name="PlayerDeath" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
+[node name="Kill" type="CollisionShape2D" parent="PlayerDeath"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_pqusp")
 
 [node name="PlayerCollision" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+[node name="Damage" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_je75c")
 
