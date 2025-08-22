@@ -21,10 +21,15 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == \"Foxxi\":
-		Game.Gold += 5
-		$AnimatedSprite2D.play(\"Fb\")
-		await $AnimatedSprite2D.animation_finished
-		queue_free()
+		Game.PlayerHP += 5
+		if Game.PlayerHP > 10:
+			Game.PlayerHP = 10
+		var tweenUp = get_tree().create_tween()
+		var tweenMod = get_tree().create_tween()
+		tweenUp.tween_property(self, \"position\", position - Vector2(0,35), 0.35)
+		tweenMod.tween_property(self, \"modulate:a\", 0, 0.2)
+		
+		tweenUp.tween_callback(queue_free)
 		
 "
 
@@ -87,7 +92,7 @@ shape = SubResource("CircleShape2D_tuxj2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_8415w")
-animation = &"Idle"
+animation = &"Fb"
 autoplay = "Idle"
 metadata/_edit_lock_ = true
 
